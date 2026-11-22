@@ -1,0 +1,165 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>LMS | Student Dashboard</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <div class="dashboard">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+
+            <h2 class="logo">LearnHub</h2>
+
+            <nav>
+                <a href="#" class="active">🏠 Dashboard</a>
+                <a href="#">📚 My Courses</a>
+                <a href="#">🔍 Explore Courses</a>
+                <a href="#">📊 My Progress</a>
+                <a href="#">👤 My Profile</a>
+            </nav>
+
+            <a href="#" class="logout">🚪 Logout</a>
+
+        </aside>
+
+
+        <!-- Main Content -->
+        <main class="main-content">
+
+            <!-- Header -->
+
+<header class="header">
+
+    <div class="header-left">
+        <h2>Student Dashboard</h2>
+
+        <input
+            type="text"
+            id="courseSearch"
+            placeholder="Search your courses..."
+        >
+    </div>
+
+    <div class="student-profile">
+        <span>🔔</span>
+        <span>👨‍🎓</span>
+
+        <div>
+            <strong>Student Name</strong>
+            <p>Undergraduate</p>
+        </div>
+    </div>
+
+</header>
+
+
+            <!-- Welcome Section -->
+            <section class="welcome">
+
+                <h1>Welcome back, Student! 👋</h1>
+
+                <p>
+                    Continue your learning journey and achieve
+                    your academic goals.
+                </p>
+
+            </section>
+
+
+            <!-- Statistics -->
+            <section class="stats">
+
+                <div class="stat-card">
+                    <h3>Enrolled Courses</h3>
+                    <h1>06</h1>
+                    <p>Courses you are learning</p>
+                </div>
+
+                <div class="stat-card">
+                    <h3>Completed Courses</h3>
+                    <h1>03</h1>
+                    <p>Successfully completed</p>
+                </div>
+
+                <div class="stat-card">
+                    <h3>Learning Hours</h3>
+                    <h1>42</h1>
+                    <p>Total study hours</p>
+                </div>
+
+            </section>
+
+
+            <!-- My Courses -->
+            <section class="courses">
+
+                <div class="section-heading">
+                    <h2>My Courses</h2>
+                    <a href="#">View All</a>
+                </div>
+
+                <div class="course-grid">
+
+                    <article class="course-card">
+                        <span class="course-icon">💻</span>
+                        <h3>Web Development</h3>
+                        <p>Learn HTML, CSS and JavaScript.</p>
+
+                        <div class="progress">
+                            <div style="width: 75%"></div>
+                        </div>
+
+                        <p>75% Completed</p>
+                        <button>Continue Learning</button>
+                    </article>
+
+
+                    <article class="course-card">
+                        <span class="course-icon">🐍</span>
+                        <h3>Python Programming</h3>
+                        <p>Learn Python programming basics.</p>
+
+                        <div class="progress">
+                            <div style="width: 50%"></div>
+                        </div>
+
+                        <p>50% Completed</p>
+                        <button>Continue Learning</button>
+                    </article>
+
+
+                    <article class="course-card">
+                        <span class="course-icon">🗄️</span>
+                        <h3>Database Systems</h3>
+                        <p>Understand SQL and databases.</p>
+
+                        <div class="progress">
+                            <div style="width: 30%"></div>
+                        </div>
+
+                        <p>30% Completed</p>
+                        <button>Continue Learning</button>
+                    </article>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+    <script src="js/script.js"></script>
+
+</body>
+</html>
