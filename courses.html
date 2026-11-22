@@ -1,74 +1,46 @@
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>LMS | Explore Courses</title>
-
+    <title>LearnHub | Explore Courses</title>
     <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js" defer></script>
 </head>
-
 <body>
+<div class="app-layout">
+    <aside class="sidebar">
+        <a class="brand" href="index.html"><span class="brand-icon">L</span> LearnHub</a>
+        <p class="nav-label">MENU</p>
+        <nav class="sidebar-nav">
+            <a class="nav-link" href="index.html"><span>▦</span> Dashboard</a>
+            <a class="nav-link active" href="courses.html"><span>▤</span> Explore Courses</a>
+            <a class="nav-link" href="index.html#my-courses"><span>▣</span> My Courses</a>
+            <a class="nav-link" href="index.html#my-progress"><span>◷</span> My Progress</a>
+            <a class="nav-link" href="index.html#profile"><span>♙</span> My Profile</a>
+        </nav>
+        <div class="sidebar-bottom">
+            <a class="nav-link" href="mailto:support@learnhub.example"><span>?</span> Help & Support</a>
+            <a class="nav-link" href="index.html"><span>↪</span> Logout</a>
+        </div>
+    </aside>
 
-    <div class="dashboard">
+    <main class="main-content">
+        <header class="header">
+            <div class="header-left"><p class="eyebrow">GROW YOUR SKILLS</p><h1>Explore Courses</h1></div>
+            <div class="header-right"><div class="student-profile"><div class="avatar">SH</div><div><strong>Student Name</strong><small>Student</small></div></div></div>
+        </header>
 
-        <!-- Sidebar -->
-        <aside class="sidebar">
+        <section class="page-intro">
+            <h2>Find your next course</h2>
+            <p class="muted">Explore courses and learn something new at your own pace.</p>
+        </section>
 
-            <h2 class="logo">LearnHub</h2>
-
-            <nav>
-                <a href="index.html">🏠 Dashboard</a>
-                <a href="index.html">📚 My Courses</a>
-                <a href="courses.html" class="active">🔍 Explore Courses</a>
-                <a href="#">📊 My Progress</a>
-                <a href="#">👤 My Profile</a>
-            </nav>
-
-            <a href="#" class="logout">🚪 Logout</a>
-
-        </aside>
-
-
-        <!-- Main Content -->
-        <main class="main-content">
-
-            <header class="header">
-                <h2>Explore Courses</h2>
-
-                <div class="student-profile">
-                    <span>👨‍🎓</span>
-                    <div>
-                        <strong>Student Name</strong>
-                        <p>Undergraduate</p>
-                    </div>
-                </div>
-            </header>
-
-
-            <!-- Introduction -->
-            <section class="welcome">
-                <h1>Discover New Courses 📚</h1>
-
-                <p>
-                    Explore courses, develop your skills
-                    and achieve your learning goals.
-                </p>
-            </section>
-
-
-            <!-- Search -->
-            <section class="course-controls">
-
-                <input
-                    type="text"
-                    id="exploreSearch"
-                    placeholder="Search courses..."
-                >
-
+        <section class="filter-panel" aria-label="Course filters">
+            <label class="search-box filter-search" for="exploreSearch"><span>⌕</span>
+                <input id="exploreSearch" type="search" placeholder="Search courses..." aria-label="Search courses">
+            </label>
+            <label class="select-label" for="categoryFilter">Category
                 <select id="categoryFilter">
                     <option value="all">All Categories</option>
                     <option value="programming">Programming</option>
@@ -76,169 +48,57 @@
                     <option value="design">Design</option>
                     <option value="business">Business</option>
                 </select>
+            </label>
+        </section>
 
-            </section>
-
-
-            <!-- Course Catalogue -->
-            <section class="courses">
-
-                <div class="section-heading">
-                    <h2>Available Courses</h2>
-                    <span id="courseCount">6 Courses</span>
+        <div class="results-heading"><h3>Available Courses</h3><span id="courseCount" class="muted">6 Courses</span></div>
+        <section class="course-grid" id="exploreCourseGrid">
+            <article class="course-card" data-category="programming" data-course="web-development">
+                <div class="course-art art-blue">〈/〉</div><div class="course-card-body">
+                    <span class="tag">Programming</span><h3>Web Development</h3><p class="muted">Learn HTML, CSS and JavaScript to create modern websites.</p>
+                    <div class="card-meta"><span>Beginner</span><span>8 Weeks</span><span>Free</span></div>
+                    <a class="btn btn-primary btn-full details-btn" href="course-details.html?course=web-development">View Details</a>
                 </div>
-
-
-                <div class="course-grid" id="exploreCourseGrid">
-
-                    <article class="course-card"
-                        data-category="programming">
-
-                        <span class="course-icon">💻</span>
-                        <h3>Web Development</h3>
-
-                        <p>
-                            Learn HTML, CSS, JavaScript
-                            and modern web development.
-                        </p>
-
-                        <p class="course-level">Beginner</p>
-
-                        <strong class="course-price">Free</strong>
-
-                        <button class="details-btn">
-                            View Details
-                        </button>
-
-                    </article>
-
-
-                    <article class="course-card"
-                        data-category="programming">
-
-                        <span class="course-icon">🐍</span>
-                        <h3>Python Programming</h3>
-
-                        <p>
-                            Learn Python fundamentals
-                            and programming concepts.
-                        </p>
-
-                        <p class="course-level">Beginner</p>
-
-                        <strong class="course-price">Free</strong>
-
-                        <button class="details-btn">
-                            View Details
-                        </button>
-
-                    </article>
-
-
-                    <!-- <article class="course-card"
-                        data-category="database"> -->
-
-                    <article class="course-card"
-                        data-category="programming"
-                        data-course="web-development">    
-
-                        <span class="course-icon">🗄️</span>
-                        <h3>Database Systems</h3>
-
-                        <p>
-                            Understand SQL, database
-                            design and management.
-                        </p>
-
-                        <p class="course-level">Intermediate</p>
-
-                        <strong class="course-price">Free</strong>
-
-                        <button class="details-btn">
-                            View Details
-                        </button>
-
-                    </article>
-
-
-                    <article class="course-card"
-                        data-category="design">
-
-                        <span class="course-icon">🎨</span>
-                        <h3>UI/UX Design</h3>
-
-                        <p>
-                            Learn wireframing, prototyping
-                            and user experience design.
-                        </p>
-
-                        <p class="course-level">Beginner</p>
-
-                        <strong class="course-price">Free</strong>
-
-                        <button class="details-btn">
-                            View Details
-                        </button>
-
-                    </article>
-
-
-                    <article class="course-card"
-                        data-category="business">
-
-                        <span class="course-icon">📈</span>
-                        <h3>Business Management</h3>
-
-                        <p>
-                            Learn business planning,
-                            management and strategy.
-                        </p>
-
-                        <p class="course-level">Beginner</p>
-
-                        <strong class="course-price">Free</strong>
-
-                        <button class="details-btn">
-                            View Details
-                        </button>
-
-                    </article>
-
-
-                    <article class="course-card"
-                        data-category="programming">
-
-                        <span class="course-icon">⚛️</span>
-                        <h3>React Development</h3>
-
-                        <p>
-                            Learn components, props,
-                            state and React fundamentals.
-                        </p>
-
-                        <p class="course-level">Intermediate</p>
-
-                        <strong class="course-price">Free</strong>
-
-                        <button class="details-btn">
-                            View Details
-                        </button>
-
-                    </article>
-
+            </article>
+            <article class="course-card" data-category="programming" data-course="python">
+                <div class="course-art art-yellow">Py</div><div class="course-card-body">
+                    <span class="tag">Programming</span><h3>Python Programming</h3><p class="muted">Start programming with variables, conditions, loops and functions.</p>
+                    <div class="card-meta"><span>Beginner</span><span>6 Weeks</span><span>Free</span></div>
+                    <a class="btn btn-primary btn-full details-btn" href="course-details.html?course=python">View Details</a>
                 </div>
-
-                <p id="noCourses" class="no-courses" hidden>
-                    No courses found. Try another search.
-                </p>
-
-            </section>
-
-        </main>
-
-    </div>
-
-    <script src="js/script.js"></script>
-
+            </article>
+            <article class="course-card" data-category="database" data-course="database">
+                <div class="course-art art-pink">▤</div><div class="course-card-body">
+                    <span class="tag">Database</span><h3>Database Systems</h3><p class="muted">Learn relational databases, SQL queries and database design.</p>
+                    <div class="card-meta"><span>Intermediate</span><span>7 Weeks</span><span>Free</span></div>
+                    <a class="btn btn-primary btn-full details-btn" href="course-details.html?course=database">View Details</a>
+                </div>
+            </article>
+            <article class="course-card" data-category="design" data-course="uiux">
+                <div class="course-art art-purple">✦</div><div class="course-card-body">
+                    <span class="tag">Design</span><h3>UI/UX Design</h3><p class="muted">Explore user research, wireframes, visual design and prototypes.</p>
+                    <div class="card-meta"><span>Beginner</span><span>5 Weeks</span><span>Free</span></div>
+                    <a class="btn btn-primary btn-full details-btn" href="course-details.html?course=uiux">View Details</a>
+                </div>
+            </article>
+            <article class="course-card" data-category="business" data-course="business">
+                <div class="course-art art-green">↗</div><div class="course-card-body">
+                    <span class="tag">Business</span><h3>Business Management</h3><p class="muted">Explore planning, leadership and business management concepts.</p>
+                    <div class="card-meta"><span>Beginner</span><span>6 Weeks</span><span>Free</span></div>
+                    <a class="btn btn-primary btn-full details-btn" href="course-details.html?course=business">View Details</a>
+                </div>
+            </article>
+            <article class="course-card" data-category="programming" data-course="react">
+                <div class="course-art art-cyan">⚛</div><div class="course-card-body">
+                    <span class="tag">Programming</span><h3>React Development</h3><p class="muted">Learn components, props, state and modern React development.</p>
+                    <div class="card-meta"><span>Intermediate</span><span>8 Weeks</span><span>Free</span></div>
+                    <a class="btn btn-primary btn-full details-btn" href="course-details.html?course=react">View Details</a>
+                </div>
+            </article>
+        </section>
+        <p id="noCourses" class="empty-state" hidden>No courses found. Try another search or category.</p>
+        <footer class="site-footer">© 2026 LearnHub. Learning made simple.</footer>
+    </main>
+</div>
 </body>
 </html>

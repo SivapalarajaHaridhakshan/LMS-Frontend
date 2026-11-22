@@ -1,126 +1,74 @@
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>LMS | Course Details</title>
-
+    <title>LearnHub | Course Details</title>
     <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js" defer></script>
 </head>
-
 <body>
+<div class="app-layout">
+    <aside class="sidebar">
+        <a class="brand" href="index.html"><span class="brand-icon">L</span> LearnHub</a>
+        <p class="nav-label">MENU</p>
+        <nav class="sidebar-nav">
+            <a class="nav-link" href="index.html"><span>▦</span> Dashboard</a>
+            <a class="nav-link active" href="courses.html"><span>▤</span> Explore Courses</a>
+            <a class="nav-link" href="index.html#my-courses"><span>▣</span> My Courses</a>
+            <a class="nav-link" href="index.html#my-progress"><span>◷</span> My Progress</a>
+            <a class="nav-link" href="index.html#profile"><span>♙</span> My Profile</a>
+        </nav>
+        <div class="sidebar-bottom"><a class="nav-link" href="mailto:support@learnhub.example"><span>?</span> Help & Support</a><a class="nav-link" href="index.html"><span>↪</span> Logout</a></div>
+    </aside>
 
-    <div class="dashboard">
+    <main class="main-content">
+        <header class="header">
+            <div class="header-left"><p class="eyebrow">COURSE INFORMATION</p><h1>Course Details</h1></div>
+            <div class="header-right"><div class="student-profile"><div class="avatar">SH</div><div><strong>Student Name</strong><small>Student</small></div></div></div>
+        </header>
 
-        <!-- Sidebar -->
-        <aside class="sidebar">
+        <a class="back-link" href="courses.html">← Back to courses</a>
+        <section class="detail-hero">
+            <div class="detail-icon" id="detailIcon">💻</div>
+            <div class="detail-heading">
+                <span class="tag" id="detailCategory">Programming</span>
+                <h2 id="detailTitle">Loading course...</h2>
+                <p id="detailDescription" class="muted">Please wait while course details load.</p>
+            </div>
+        </section>
 
-            <h2 class="logo">LearnHub</h2>
-
-            <nav>
-                <a href="index.html">🏠 Dashboard</a>
-                <a href="index.html">📚 My Courses</a>
-                <a href="courses.html" class="active">🔍 Explore Courses</a>
-                <a href="#">📊 My Progress</a>
-                <a href="#">👤 My Profile</a>
-            </nav>
-
-            <a href="#" class="logout">🚪 Logout</a>
-
-        </aside>
-
-
-        <!-- Main Content -->
-        <main class="main-content">
-
-            <a href="courses.html" class="back-link">
-                ← Back to Courses
-            </a>
-
-            <!-- Course Information -->
-            <section class="course-detail-hero">
-
-                <span id="detailIcon">💻</span>
-
-                <p id="detailCategory">Programming</p>
-
-                <h1 id="detailTitle">Web Development</h1>
-
-                <p id="detailDescription">
-                    Learn modern web development.
-                </p>
-
-                <div class="course-meta">
-                    <span id="detailLevel">Beginner</span>
-                    <span id="detailDuration">8 Weeks</span>
-                    <span id="detailPrice">Free</span>
-                </div>
-
-                <button id="enrollButton">
-                    Enroll Now
-                </button>
-
-                <p id="enrollMessage" hidden></p>
-
-            </section>
-
-
-            <!-- Course Overview -->
-            <section class="detail-section">
-
-                <h2>About This Course</h2>
-
-                <p id="detailAbout"></p>
-
-            </section>
-
-
-            <!-- Learning Objectives -->
-            <section class="detail-section">
-
-                <h2>What You Will Learn</h2>
-
-                <ul id="learningObjectives"></ul>
-
-            </section>
-
-
-            <!-- Course Curriculum -->
-            <section class="detail-section">
-
-                <h2>Course Curriculum</h2>
-
-                <div id="courseCurriculum"></div>
-
-            </section>
-
-
-            <!-- Instructor -->
-            <section class="detail-section">
-
-                <h2>Instructor</h2>
-
-                <div class="instructor-card">
-
-                    <span>👨‍🏫</span>
-
-                    <div>
-                        <h3 id="instructorName"></h3>
-                        <p id="instructorRole"></p>
-                    </div>
-
-                </div>
-
-            </section>
-
-        </main>
-
-    </div>
-
-    <script src="js/script.js"></script>
-
+        <section class="detail-layout">
+            <div class="detail-main">
+                <article class="content-panel">
+                    <h3>About this course</h3>
+                    <p id="detailAbout" class="muted"></p>
+                </article>
+                <article class="content-panel">
+                    <h3>What you will learn</h3>
+                    <ul id="learningObjectives" class="objective-list"></ul>
+                </article>
+                <article class="content-panel">
+                    <h3>Course curriculum</h3>
+                    <div id="courseCurriculum" class="curriculum-list"></div>
+                </article>
+                <article class="content-panel instructor-panel">
+                    <div class="instructor-avatar">👨‍🏫</div>
+                    <div><h3 id="instructorName">Instructor</h3><p id="instructorRole" class="muted">Course Instructor</p></div>
+                </article>
+            </div>
+            <aside class="enroll-panel">
+                <p class="eyebrow">COURSE OVERVIEW</p>
+                <div class="overview-row"><span>Level</span><strong id="detailLevel">Beginner</strong></div>
+                <div class="overview-row"><span>Duration</span><strong id="detailDuration">8 Weeks</strong></div>
+                <div class="overview-row"><span>Course fee</span><strong id="detailPrice">Free</strong></div>
+                <button class="btn btn-primary btn-full" id="enrollButton" type="button">Enroll Now</button>
+                <p id="enrollMessage" class="success-message" hidden></p>
+                <p class="small-note">This is a frontend demonstration. Enrollment is not saved to a server.</p>
+            </aside>
+        </section>
+        <footer class="site-footer">© 2026 LearnHub. Learning made simple.</footer>
+    </main>
+</div>
 </body>
 </html>
