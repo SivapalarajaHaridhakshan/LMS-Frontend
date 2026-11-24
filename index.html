@@ -15,8 +15,10 @@
         <nav class="sidebar-nav">
             <a class="nav-link active" href="index.html"><span>▦</span> Dashboard</a>
             <a class="nav-link" href="courses.html"><span>▤</span> Explore Courses</a>
-            <a class="nav-link" href="#my-courses"><span>▣</span> My Courses</a>
-            <a class="nav-link" href="#my-progress"><span>◷</span> My Progress</a>
+            <!-- <a class="nav-link" href="#my-courses"><span>▣</span> My Courses</a>
+            <a class="nav-link" href="#my-progress"><span>◷</span> My Progress</a> -->
+            <a class="nav-link" href="my-courses.html"> <span>▣</span> My Courses </a>
+            <a class="nav-link" href="profile.html"> <span>♙</span> My Profile</a>
             <a class="nav-link" href="#profile"><span>♙</span> My Profile</a>
         </nav>
         <div class="sidebar-bottom">
@@ -40,13 +42,19 @@
                     <div><strong>Student Name</strong><small>Student</small></div>
                 </div>
             </div>
+            <!-- <button id="logoutBtn" class="logout-btn">Logout</button> -->
+             <button type="button" class="nav-link" id="sidebarLogout">
+               <span>↪</span> Logout
+             </button>
         </header>
 
         <section class="welcome-panel">
             <div>
                 <p class="eyebrow light">YOUR LEARNING JOURNEY</p>
-                <h2>Welcome back, Student! 👋</h2>
-                <p>Keep learning, keep growing. Your next achievement is waiting.</p>
+                <!-- <h2>Welcome back, Student! 👋</h2>
+                <p>Keep learning, keep growing. Your next achievement is waiting.</p> -->
+                <h1 id="welcomeMessage">Welcome back!</h1>
+                <p id="studentEmail"></p>
                 <a class="btn btn-light" href="courses.html">Explore courses <span>→</span></a>
             </div>
             <div class="welcome-art" aria-hidden="true">✦</div>

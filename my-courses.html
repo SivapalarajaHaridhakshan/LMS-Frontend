@@ -1,0 +1,100 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Courses | LearnHub</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/student-pages.css">
+    <script src="js/student-pages.js" defer></script>
+</head>
+<body>
+
+<div class="app-layout">
+    <aside class="sidebar">
+        <a class="brand" href="index.html">
+            <span class="brand-icon">L</span> LearnHub
+        </a>
+
+        <p class="nav-label">MENU</p>
+
+        <nav class="sidebar-nav">
+            <a class="nav-link" href="index.html"><span>▦</span> Dashboard</a>
+            <a class="nav-link" href="courses.html"><span>▤</span> Explore Courses</a>
+            <a class="nav-link active" href="my-courses.html"><span>▣</span> My Courses</a>
+            <a class="nav-link" href="index.html#my-progress"><span>◷</span> My Progress</a>
+            <a class="nav-link" href="profile.html"><span>♙</span> My Profile</a>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <a class="nav-link" href="mailto:support@learnhub.example"><span>?</span> Help & Support</a>
+            <button class="nav-link" id="sidebarLogout"><span>↪</span> Logout</button>
+        </div>
+    </aside>
+
+    <main class="main-content">
+
+        <header class="page-header">
+            <div>
+                <p class="eyebrow">YOUR LEARNING JOURNEY</p>
+                <h1>My Courses</h1>
+                <p class="muted">Continue learning and track your course progress.</p>
+            </div>
+            <button class="logout-btn" id="logoutBtn">Logout</button>
+        </header>
+
+        <section class="course-summary">
+            <article class="stat-card">
+                <span class="stat-icon purple">▣</span>
+                <div>
+                    <p>Enrolled Courses</p>
+                    <h3 id="enrolledCount">03</h3>
+                </div>
+            </article>
+
+            <article class="stat-card">
+                <span class="stat-icon green">✓</span>
+                <div>
+                    <p>Completed Courses</p>
+                    <h3 id="completedCount">01</h3>
+                </div>
+            </article>
+
+            <article class="stat-card">
+                <span class="stat-icon orange">◷</span>
+                <div>
+                    <p>In Progress</p>
+                    <h3 id="activeCount">02</h3>
+                </div>
+            </article>
+        </section>
+
+        <section class="section-block">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">YOUR LEARNING LIBRARY</p>
+                    <h2>Enrolled Courses</h2>
+                </div>
+
+                <a class="text-link" href="courses.html">Explore more courses →</a>
+            </div>
+
+            <div class="my-course-grid" id="myCourseGrid"></div>
+
+            <div class="empty-state" id="emptyCourses" hidden>
+                <h3>No courses yet</h3>
+                <p>You haven't enrolled in any courses.</p>
+                <a href="courses.html" class="btn btn-primary">Explore Courses</a>
+            </div>
+        </section>
+
+        <footer class="site-footer">
+            © 2026 LearnHub. Learning made simple.
+        </footer>
+
+    </main>
+</div>
+
+</body>
+</html>

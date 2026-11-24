@@ -259,3 +259,63 @@ if (detailTitle) {
         });
     }
 }
+// ========================================
+// STUDENT SESSION MANAGEMENT
+// ========================================
+
+const currentUser = JSON.parse(
+    sessionStorage.getItem("learnhubCurrentUser")
+);
+
+// Protect dashboard
+if (!currentUser) {
+    window.location.href = "login.html";
+} else {
+    const welcomeMessage = document.getElementById("welcomeMessage");
+    const studentEmail = document.getElementById("studentEmail");
+
+    // if (welcomeMessage) {
+    //     welcomeMessage.textContent = `Welcome back, ${currentUser.name}!`;
+    // }
+     
+    const savedProfiles = JSON.parse(
+    localStorage.getItem("learnhubProfiles") || "{}"
+);
+
+const studentName =
+    savedProfiles[currentUser.email]?.name || currentUser.name;
+
+if (welcomeMessage) {
+    welcomeMessage.textContent = `Welcome back, ${studentName}!`;
+}
+
+const headerStudentName = document.getElementById("headerStudentName");
+const studentAvatar = document.getElementById("studentAvatar");
+
+if (headerStudentName) {
+    headerStudentName.textContent = studentName;
+}
+
+if (studentAvatar) {
+    studentAvatar.textContent = studentName
+        .trim()
+        .split(/\s+/)
+        .slice(0, 2)
+        .map(word => word[0].toUpperCase())
+        .join("");
+}
+
+    if (studentEmail) {
+        studentEmail.textContent = currentUser.email;
+    }
+}
+
+// Logout
+const logoutBtn = document.getElementById("logoutBtn");
+
+if (logoutBtn) {
+    logoutBtn.addEventListener("click", function () {
+        sessionStorage.removeItem("learnhubCurrentUser");
+        window.location.href = "login.html";
+    });
+}

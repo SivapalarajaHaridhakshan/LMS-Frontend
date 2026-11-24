@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | LearnHub</title>
+    <link rel="stylesheet" href="css/auth.css">
+</head>
+<body>
+
+    <main class="auth-container">
+
+        <section class="auth-brand">
+            <a href="index.html" class="logo">LearnHub<span>.</span></a>
+
+            <div class="brand-content">
+                <span class="tagline">LEARN. GROW. SUCCEED.</span>
+                <h1>Unlock your potential with online learning.</h1>
+                <p>Build new skills, explore courses and achieve your learning goals with LearnHub.</p>
+            </div>
+
+            <p class="brand-footer">© 2026 LearnHub. All rights reserved.</p>
+        </section>
+
+        <section class="auth-form-section">
+            <div class="auth-form">
+
+                <div class="mobile-logo">
+                    <a href="index.html" class="logo">LearnHub<span>.</span></a>
+                </div>
+
+                <h2>Welcome back!</h2>
+                <p class="form-description">Enter your details to access your account.</p>
+
+                <form id="loginForm">
+
+                    <div class="form-group">
+                        <label for="loginEmail">Email address</label>
+                        <input type="email" id="loginEmail"
+                            placeholder="you@example.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="loginPassword">Password</label>
+                        <input type="password" id="loginPassword"
+                            placeholder="Enter your password" required>
+                    </div>
+
+                    <button type="submit" class="auth-button">Sign In</button>
+
+                    <p id="loginMessage" class="message"></p>
+
+                </form>
+
+                <p class="auth-switch">
+                    Don't have an account?
+                    <a href="register.html">Create account</a>
+                </p>
+
+                <a href="index.html" class="back-link">← Back to Home</a>
+
+            </div>
+        </section>
+
+    </main>
+
+    <script src="js/auth.js"></script>
+</body>
+</html>

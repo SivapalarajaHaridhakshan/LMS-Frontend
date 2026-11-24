@@ -1,0 +1,100 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile | LearnHub</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/student-pages.css">
+    <script src="js/student-pages.js" defer></script>
+</head>
+<body>
+
+<div class="app-layout">
+    <aside class="sidebar">
+        <a class="brand" href="index.html">
+            <span class="brand-icon">L</span> LearnHub
+        </a>
+
+        <p class="nav-label">MENU</p>
+
+        <nav class="sidebar-nav">
+            <a class="nav-link" href="index.html"><span>▦</span> Dashboard</a>
+            <a class="nav-link" href="courses.html"><span>▤</span> Explore Courses</a>
+            <a class="nav-link" href="my-courses.html"><span>▣</span> My Courses</a>
+            <a class="nav-link" href="index.html#my-progress"><span>◷</span> My Progress</a>
+            <a class="nav-link active" href="profile.html"><span>♙</span> My Profile</a>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <a class="nav-link" href="mailto:support@learnhub.example"><span>?</span> Help & Support</a>
+            <button class="nav-link" id="sidebarLogout"><span>↪</span> Logout</button>
+        </div>
+    </aside>
+
+    <main class="main-content">
+
+        <header class="page-header">
+            <div>
+                <p class="eyebrow">ACCOUNT SETTINGS</p>
+                <h1>My Profile</h1>
+                <p class="muted">View and manage your student information.</p>
+            </div>
+            <button class="logout-btn" id="logoutBtn">Logout</button>
+        </header>
+
+        <section class="profile-card">
+
+            <div class="profile-banner">
+                <div class="large-avatar" id="profileAvatar">SH</div>
+                <div>
+                    <h2 id="displayName">Student Name</h2>
+                    <p>LearnHub Student</p>
+                </div>
+            </div>
+
+            <form id="profileForm">
+
+                <div class="profile-form-grid">
+
+                    <div class="form-group">
+                        <label for="profileName">Full Name</label>
+                        <input type="text" id="profileName" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="profileEmail">Email Address</label>
+                        <input type="email" id="profileEmail" readonly>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="profilePhone">Phone Number</label>
+                        <input type="tel" id="profilePhone" placeholder="Enter phone number">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="profileRole">Account Type</label>
+                        <input type="text" id="profileRole" value="Student" readonly>
+                    </div>
+
+                </div>
+
+                <p id="profileMessage" class="message"></p>
+
+                <button type="submit" class="btn btn-primary">
+                    Save Changes
+                </button>
+
+            </form>
+        </section>
+
+        <footer class="site-footer">
+            © 2026 LearnHub. Learning made simple.
+        </footer>
+
+    </main>
+</div>
+
+</body>
+</html>
