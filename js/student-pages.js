@@ -118,39 +118,42 @@ if (myCourseGrid) {
 
     // Demo enrolled courses.
     // These are sample records, not actual course enrollments.
-    const demoCourses = [
-        {
-            id: "web-development",
-            title: "Web Development",
-            category: "Programming",
-            description: "Learn to build modern and responsive websites.",
-            icon: "〈/〉",
-            art: "art-blue",
-            progress: 75
-        },
-        {
-            id: "python",
-            title: "Python Programming",
-            category: "Programming",
-            description: "Build your programming skills with Python.",
-            icon: "Py",
-            art: "art-yellow",
-            progress: 45
-        },
-        {
-            id: "database",
-            title: "Database Systems",
-            category: "Database",
-            description: "Understand SQL and database management.",
-            icon: "▤",
-            art: "art-pink",
-            progress: 100
-        }
-    ];
+    // const demoCourses = [
+    //     {
+    //         id: "web-development",
+    //         title: "Web Development",
+    //         category: "Programming",
+    //         description: "Learn to build modern and responsive websites.",
+    //         icon: "〈/〉",
+    //         art: "art-blue",
+    //         progress: 75
+    //     },
+    //     {
+    //         id: "python",
+    //         title: "Python Programming",
+    //         category: "Programming",
+    //         description: "Build your programming skills with Python.",
+    //         icon: "Py",
+    //         art: "art-yellow",
+    //         progress: 45
+    //     },
+    //     {
+    //         id: "database",
+    //         title: "Database Systems",
+    //         category: "Database",
+    //         description: "Understand SQL and database management.",
+    //         icon: "▤",
+    //         art: "art-pink",
+    //         progress: 100
+    //     }
+    // ];
 
+    // const courses = JSON.parse(
+    //     localStorage.getItem("learnhubMyCourses") || "null"
+    // ) || demoCourses;
     const courses = JSON.parse(
-        localStorage.getItem("learnhubMyCourses") || "null"
-    ) || demoCourses;
+    localStorage.getItem("learnhubMyCourses") || "[]"
+);
 
     // Save initial demo course list
     if (!localStorage.getItem("learnhubMyCourses")) {

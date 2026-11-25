@@ -36,23 +36,48 @@ if (exploreSearch && categoryFilter) {
     categoryFilter.addEventListener("change", filterCourses);
 }
 
-// =================================
-// DASHBOARD COURSE SEARCH
-// =================================
-const dashboardSearch = document.getElementById("courseSearch");
+// // =================================
+// // DASHBOARD COURSE SEARCH
+// // =================================
+// const dashboardSearch = document.getElementById("courseSearch");
 
-if (dashboardSearch) {
-    const dashboardCards = document.querySelectorAll(".dashboard-grid .course-card");
+// if (dashboardSearch) {
+//     const dashboardCards = document.querySelectorAll(".dashboard-grid .course-card");
 
-    dashboardSearch.addEventListener("input", function () {
-        const searchValue = dashboardSearch.value.trim().toLowerCase();
+//     dashboardSearch.addEventListener("input", function () {
+//         const searchValue = dashboardSearch.value.trim().toLowerCase();
 
-        dashboardCards.forEach(function (card) {
-            const courseName = card.querySelector("h3").textContent.toLowerCase();
-            card.hidden = !courseName.includes(searchValue);
+//         dashboardCards.forEach(function (card) {
+//             const courseName = card.querySelector("h3").textContent.toLowerCase();
+//             card.hidden = !courseName.includes(searchValue);
+//         });
+//   });
+// }
+    // =================================
+    // DASHBOARD COURSE SEARCH
+    // =================================
+
+    const dashboardSearch = document.getElementById("courseSearch");
+
+    if (dashboardSearch) {
+        dashboardSearch.addEventListener("input", function () {
+
+            const searchValue = dashboardSearch.value.trim().toLowerCase();
+
+            const dashboardCards = document.querySelectorAll(
+                "#dashboardCourseGrid .course-card"
+            );
+
+            dashboardCards.forEach(function (card) {
+
+                const courseName = card.querySelector("h3")
+                    .textContent.toLowerCase();
+
+                card.hidden = !courseName.includes(searchValue);
+
+            });
         });
-    });
-}
+    }
 
 // =================================
 // COURSE DETAILS DATA
@@ -247,16 +272,94 @@ if (detailTitle) {
             curriculum.appendChild(item);
         });
 
-        const enrollButton = document.getElementById("enrollButton");
-        const enrollMessage = document.getElementById("enrollMessage");
+        // const enrollButton = document.getElementById("enrollButton");
+        // const enrollMessage = document.getElementById("enrollMessage");
 
-        enrollButton.addEventListener("click", function () {
-            enrollMessage.hidden = false;
-            enrollMessage.textContent =
-                "You have successfully enrolled in " + course.title + " (demo only)!";
-            enrollButton.textContent = "Enrolled";
-            enrollButton.disabled = true;
-        });
+        // enrollButton.addEventListener("click", function () {
+        //     enrollMessage.hidden = false;
+        //     enrollMessage.textContent =
+        //         "You have successfully enrolled in " + course.title + " (demo only)!";
+        //     enrollButton.textContent = "Enrolled";
+        //     enrollButton.disabled = true;
+        // });
+        const enrollButton = document.getElementById("enrollButton");
+const enrollMessage = document.getElementById("enrollMessage");
+
+const currentUser = JSON.parse(
+    sessionStorage.getItem("learnhubCurrentUser") || "null"
+);
+
+function getEnrolledCourses() {
+    return JSON.parse(
+        localStorage.getItem("learnhubMyCourses") || "[]"
+    );
+}
+
+// Check whether student already enrolled
+const existingCourses = getEnrolledCourses();
+
+const alreadyEnrolled = existingCourses.some(
+    enrolledCourse => enrolledCourse.id === courseId
+);
+
+if (alreadyEnrolled) {
+    enrollButton.textContent = "Already Enrolled";
+    enrollButton.disabled = true;
+
+    enrollMessage.hidden = false;
+    enrollMessage.textContent =
+        "You are already enrolled in this course.";
+}
+
+enrollButton.addEventListener("click", function () {
+
+    if (!currentUser) {
+        window.location.href = "login.html";
+        return;
+    }
+
+    const courses = getEnrolledCourses();
+
+    // Prevent duplicate enrollment
+    const alreadyExists = courses.some(
+        enrolledCourse => enrolledCourse.id === courseId
+    );
+
+    if (alreadyExists) {
+        enrollMessage.hidden = false;
+        enrollMessage.textContent =
+            "You are already enrolled in this course.";
+        return;
+    }
+
+    // Create new enrollment
+    const newCourse = {
+        id: courseId,
+        title: course.title,
+        category: course.category,
+        description: course.description,
+        icon: course.icon,
+        art: "art-blue",
+        progress: 0
+    };
+
+    courses.push(newCourse);
+
+    // Save enrollment
+    localStorage.setItem(
+        "learnhubMyCourses",
+        JSON.stringify(courses)
+    );
+
+    // Update button and message
+    enrollButton.textContent = "Enrolled";
+    enrollButton.disabled = true;
+
+    enrollMessage.hidden = false;
+    enrollMessage.textContent =
+        "Successfully enrolled in " + course.title + "!";
+
+});
     }
 }
 // ========================================
@@ -311,11 +414,180 @@ if (studentAvatar) {
 }
 
 // Logout
-const logoutBtn = document.getElementById("logoutBtn");
+// const logoutBtn = document.getElementById("logoutBtn");
 
-if (logoutBtn) {
-    logoutBtn.addEventListener("click", function () {
+// if (logoutBtn) {
+//     logoutBtn.addEventListener("click", function () {
+//         sessionStorage.removeItem("learnhubCurrentUser");
+//         window.location.href = "login.html";
+//     });
+// }
+// ========================================
+// LOGOUT
+// ========================================
+
+    function logoutStudent() {
         sessionStorage.removeItem("learnhubCurrentUser");
         window.location.href = "login.html";
+    }
+
+    const logoutBtn = document.getElementById("logoutBtn");
+    const sidebarLogout = document.getElementById("sidebarLogout");
+
+    if (logoutBtn) {
+        logoutBtn.addEventListener("click", logoutStudent);
+    }
+
+    if (sidebarLogout) {
+        sidebarLogout.addEventListener("click", logoutStudent);
+    }
+
+// ========================================
+// DYNAMIC DASHBOARD COURSES
+// ========================================
+
+const dashboardCourseGrid = document.getElementById(
+    "dashboardCourseGrid"
+);
+
+if (dashboardCourseGrid) {
+
+    // Get saved enrolled courses
+    const enrolledCourses = JSON.parse(
+        localStorage.getItem("learnhubMyCourses") || "[]"
+    );
+
+    // Dashboard elements
+    const enrolledNumber = document.getElementById(
+        "dashboardEnrolled"
+    );
+
+    const completedNumber = document.getElementById(
+        "dashboardCompleted"
+    );
+
+    const emptyMessage = document.getElementById(
+        "dashboardEmptyMessage"
+    );
+
+    const overallBar = document.getElementById(
+        "dashboardOverallBar"
+    );
+
+    const overallText = document.getElementById(
+        "dashboardOverallText"
+    );
+
+    // Clear existing cards
+    dashboardCourseGrid.innerHTML = "";
+
+    // Display enrolled courses
+    enrolledCourses.forEach(function (course) {
+
+        const card = document.createElement("article");
+        card.className = "course-card";
+
+        const art = document.createElement("div");
+        art.className = "course-art " + (course.art || "art-blue");
+        art.textContent = course.icon || "📚";
+
+        const body = document.createElement("div");
+        body.className = "course-card-body";
+
+        const tag = document.createElement("span");
+        tag.className = "tag";
+        tag.textContent = course.category;
+
+        const title = document.createElement("h3");
+        title.textContent = course.title;
+
+        const description = document.createElement("p");
+        description.className = "muted";
+        description.textContent = course.description;
+
+        const progressLabel = document.createElement("div");
+        progressLabel.className = "progress-label";
+
+        const progressText = document.createElement("span");
+        progressText.textContent = "Progress";
+
+        const percentage = document.createElement("strong");
+        percentage.textContent = course.progress + "%";
+
+        progressLabel.append(progressText, percentage);
+
+        const track = document.createElement("div");
+        track.className = "progress-track";
+
+        const bar = document.createElement("span");
+
+        const progress = Math.min(
+            100,
+            Math.max(0, Number(course.progress) || 0)
+        );
+
+        bar.style.width = progress + "%";
+
+        track.appendChild(bar);
+
+        const link = document.createElement("a");
+
+        link.className = "btn btn-primary btn-full";
+
+        link.href = "course-details.html?course=" +
+            encodeURIComponent(course.id);
+
+        link.textContent = progress >= 100
+            ? "View Course"
+            : "Continue Learning";
+
+        body.append(
+            tag,
+            title,
+            description,
+            progressLabel,
+            track,
+            link
+        );
+
+        card.append(art, body);
+
+        dashboardCourseGrid.appendChild(card);
+
     });
+
+    // Calculate statistics
+    const totalCourses = enrolledCourses.length;
+
+    const completedCourses = enrolledCourses.filter(
+        course => Number(course.progress) >= 100
+    ).length;
+
+    const totalProgress = enrolledCourses.reduce(
+        (total, course) => {
+            return total + Math.min(
+                100,
+                Math.max(0, Number(course.progress) || 0)
+            );
+        },
+        0
+    );
+
+    const overallProgress = totalCourses > 0
+        ? Math.round(totalProgress / totalCourses)
+        : 0;
+
+    // Update dashboard numbers
+    enrolledNumber.textContent = String(totalCourses).padStart(2, "0");
+
+    completedNumber.textContent = String(completedCourses).padStart(2, "0");
+
+    // Update overall progress
+    overallBar.style.width = overallProgress + "%";
+
+    overallText.textContent = overallProgress + "%";
+
+    // Show empty message if no enrollments
+    emptyMessage.hidden = totalCourses !== 0;
+
 }
