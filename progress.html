@@ -1,0 +1,209 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>LearnHub | My Progress</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/progress.css">
+
+    <script src="js/progress.js" defer></script>
+</head>
+
+<body>
+
+    <div class="app-layout">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+
+            <a href="index.html" class="logo">
+                <span class="logo-icon">L</span>
+                <span>LearnHub</span>
+            </a>
+
+            <nav class="sidebar-nav">
+
+                <p class="nav-heading">MENU</p>
+
+                <a href="index.html" class="nav-link">
+                    <span>▦</span>
+                    Dashboard
+                </a>
+
+                <a href="courses.html" class="nav-link">
+                    <span>▤</span>
+                    Explore Courses
+                </a>
+
+                <a href="my-courses.html" class="nav-link">
+                    <span>▣</span>
+                    My Courses
+                </a>
+
+                <a href="progress.html" class="nav-link active">
+                    <span>◷</span>
+                    My Progress
+                </a>
+
+                <p class="nav-heading">ACCOUNT</p>
+
+                <a href="profile.html" class="nav-link">
+                    <span>◉</span>
+                    My Profile
+                </a>
+
+                <button type="button" class="nav-link logout-button" id="logoutButton">
+                    <span>↪</span>
+                    Logout
+                </button>
+
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="sidebar-footer-icon">L</div>
+                <div>
+                    <strong>LearnHub</strong>
+                    <small>Keep learning!</small>
+                </div>
+            </div>
+
+        </aside>
+
+
+        <!-- MAIN CONTENT -->
+        <main class="main-content progress-page">
+
+            <!-- HEADER -->
+            <header class="progress-header">
+
+                <div>
+                    <p class="page-subtitle">LEARNING OVERVIEW</p>
+                    <h1>My Progress</h1>
+                    <p class="header-description">
+                        Track your learning journey and celebrate your achievements.
+                    </p>
+                </div>
+
+                <a href="courses.html" class="browse-button">
+                    + Explore Courses
+                </a>
+
+            </header>
+
+
+            <!-- SUMMARY CARDS -->
+            <section class="progress-stats">
+
+                <div class="progress-stat-card">
+                    <div class="stat-icon purple">▤</div>
+                    <div>
+                        <p>Total Enrolled Courses</p>
+                        <h2 id="totalCourses">0</h2>
+                    </div>
+                </div>
+
+                <div class="progress-stat-card">
+                    <div class="stat-icon green">✓</div>
+                    <div>
+                        <p>Completed Courses</p>
+                        <h2 id="completedCourses">0</h2>
+                    </div>
+                </div>
+
+                <div class="progress-stat-card">
+                    <div class="stat-icon orange">◷</div>
+                    <div>
+                        <p>In Progress</p>
+                        <h2 id="inProgressCourses">0</h2>
+                    </div>
+                </div>
+
+                <div class="progress-stat-card">
+                    <div class="stat-icon blue">%</div>
+                    <div>
+                        <p>Overall Progress</p>
+                        <h2 id="overallProgress">0%</h2>
+                    </div>
+                </div>
+
+            </section>
+
+
+            <!-- OVERALL PROGRESS -->
+            <section class="overall-progress-card">
+
+                <div class="overall-progress-top">
+
+                    <div>
+                        <p class="section-label">YOUR LEARNING JOURNEY</p>
+                        <h2>Overall Learning Progress</h2>
+                        <p>Keep going! Every completed lesson brings you closer to your goals.</p>
+                    </div>
+
+                    <div class="overall-progress-number" id="overallProgressLarge">
+                        0%
+                    </div>
+
+                </div>
+
+                <div class="progress-track overall-track">
+                    <div class="progress-fill" id="overallProgressBar"></div>
+                </div>
+
+                <p class="overall-progress-message" id="overallMessage">
+                    Start learning to see your progress here.
+                </p>
+
+            </section>
+
+
+            <!-- COURSE PROGRESS -->
+            <section class="course-progress-section">
+
+                <div class="section-header">
+                    <div>
+                        <p class="section-label">YOUR COURSES</p>
+                        <h2>Course Progress</h2>
+                    </div>
+
+                    <span class="course-count" id="courseCount">
+                        0 Courses
+                    </span>
+                </div>
+
+                <div id="progressCourseGrid" class="progress-course-grid">
+
+                    <!-- JavaScript adds course cards here -->
+
+                </div>
+
+                <div id="emptyProgress" class="empty-progress" hidden>
+
+                    <div class="empty-icon">▤</div>
+
+                    <h3>No courses yet</h3>
+
+                    <p>
+                        You haven't enrolled in any courses.
+                        Explore our courses and start learning today.
+                    </p>
+
+                    <a href="courses.html" class="browse-button">
+                        Explore Courses
+                    </a>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+</body>
+</html>
