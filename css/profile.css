@@ -1,0 +1,285 @@
+
+/* =================================
+   LEARNHUB - PROFILE PAGE
+================================= */
+
+/* MAIN CONTENT */
+
+.main-content {
+    min-width: 0;
+    padding: 35px;
+    flex: 1;
+}
+
+
+/* PAGE HEADER */
+
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 28px;
+}
+
+.page-header h1 {
+    color: #20213a;
+    font-size: 30px;
+    font-weight: 800;
+    margin: 0 0 8px;
+}
+
+.eyebrow {
+    color: #6558d3;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+    margin: 0 0 9px;
+}
+
+.muted {
+    color: #85859a;
+    font-size: 14px;
+    margin: 0;
+}
+
+.logout-btn {
+    padding: 10px 18px;
+    color: #e05252;
+    background: #fff0f0;
+    border: 1px solid #ffe0e0;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.logout-btn:hover {
+    background: #ffe0e0;
+}
+
+
+/* PROFILE CARD */
+
+.profile-card {
+    max-width: 900px;
+    background: #ffffff;
+    border: 1px solid #eeeeF5;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(30, 30, 60, 0.04);
+}
+
+
+/* PROFILE BANNER */
+
+.profile-banner {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 35px;
+    background: linear-gradient(
+        120deg,
+        #efedff,
+        #f8f7ff
+    );
+    border-bottom: 1px solid #eeeeF5;
+}
+
+.large-avatar {
+    width: 82px;
+    height: 82px;
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+    background: linear-gradient(
+        135deg,
+        #6558d3,
+        #9185f0
+    );
+    border: 4px solid #ffffff;
+    border-radius: 50%;
+    font-size: 25px;
+    font-weight: 800;
+    box-shadow: 0 4px 12px rgba(101, 88, 211, 0.2);
+}
+
+.profile-banner h2 {
+    color: #20213a;
+    font-size: 23px;
+    margin: 0 0 7px;
+}
+
+.profile-banner p {
+    color: #85859a;
+    font-size: 13px;
+    margin: 0;
+}
+
+
+/* PROFILE FORM */
+
+#profileForm {
+    padding: 32px 35px;
+}
+
+.profile-form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 23px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+
+.form-group label {
+    color: #34344c;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.form-group input {
+    width: 100%;
+    min-height: 46px;
+    padding: 12px 14px;
+    color: #20213a;
+    background: #ffffff;
+    border: 1px solid #e4e3ed;
+    border-radius: 8px;
+    outline: none;
+    font-family: inherit;
+    font-size: 13px;
+    transition: 0.2s;
+}
+
+.form-group input:focus {
+    border-color: #6558d3;
+    box-shadow: 0 0 0 3px rgba(101, 88, 211, 0.1);
+}
+
+.form-group input[readonly] {
+    color: #85859a;
+    background: #f7f7fa;
+    cursor: not-allowed;
+}
+
+
+/* SAVE BUTTON */
+
+#profileForm .btn-primary {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 44px;
+    margin-top: 18px;
+    padding: 12px 23px;
+    color: #ffffff;
+    background: #6558d3;
+    border: none;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+#profileForm .btn-primary:hover {
+    background: #5145bd;
+    transform: translateY(-2px);
+}
+
+
+/* FORM MESSAGE */
+
+.message {
+    min-height: 18px;
+    margin: 17px 0 0;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.message.success {
+    color: #159b69;
+}
+
+.message.error {
+    color: #dc4545;
+}
+
+
+/* FOOTER */
+
+.site-footer {
+    margin-top: 35px;
+    padding: 20px 0;
+    color: #9999a9;
+    font-size: 12px;
+    text-align: center;
+}
+
+
+/* RESPONSIVE DESIGN */
+
+@media (max-width: 900px) {
+
+    .main-content {
+        padding: 25px;
+    }
+
+    .profile-card {
+        max-width: 100%;
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .main-content {
+        padding: 20px 15px;
+    }
+
+    .page-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .page-header h1 {
+        font-size: 25px;
+    }
+
+    .profile-banner {
+        padding: 25px 20px;
+        gap: 15px;
+    }
+
+    .large-avatar {
+        width: 65px;
+        height: 65px;
+        font-size: 21px;
+    }
+
+    .profile-banner h2 {
+        font-size: 19px;
+    }
+
+    #profileForm {
+        padding: 25px 20px;
+    }
+
+    .profile-form-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    #profileForm .btn-primary {
+        width: 100%;
+    }
+
+}
