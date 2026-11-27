@@ -156,12 +156,12 @@ if (myCourseGrid) {
 );
 
     // Save initial demo course list
-    if (!localStorage.getItem("learnhubMyCourses")) {
-        localStorage.setItem(
-            "learnhubMyCourses",
-            JSON.stringify(demoCourses)
-        );
-    }
+    // if (!localStorage.getItem("learnhubMyCourses")) {
+    //     localStorage.setItem(
+    //         "learnhubMyCourses",
+    //         JSON.stringify(demoCourses)
+    //     );
+    // }
 
     myCourseGrid.innerHTML = "";
 

@@ -75,7 +75,8 @@ function getStudentProfile() {
 
     const allProfiles = getAllProfiles();
 
-    return allProfiles[currentUser.email.toLowerCase()] || {
+    // return allProfiles[currentUser.email.toLowerCase()] || {
+    return allProfiles[currentUser.email] || {
         name: currentUser.name || "",
         phone: ""
     };
@@ -177,7 +178,8 @@ profileForm.addEventListener("submit", function (event) {
     // Get existing profiles
     const allProfiles = getAllProfiles();
 
-    const studentEmail = currentUser.email.toLowerCase();
+    // const studentEmail = currentUser.email.toLowerCase();
+    const studentEmail = currentUser.email;
 
     // Save updated profile
     allProfiles[studentEmail] = {
